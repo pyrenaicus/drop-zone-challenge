@@ -1,0 +1,261 @@
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/* A modern CSS RESET https://piccalil.li/blog/a-modern-css-reset/ */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++*/
+/*              COLORS & VARS               */
+/*++++++++++++++++++++++++++++++++++++++++++*/
+:root {
+  --color-background: #130f26;
+  --color-white: #fff;
+  --color-primary-light: #6ab972;
+  --color-primary-dark: #569b51;
+  --color-dark: #39424e;
+  --color-violet-2: #e8daff;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++*/
+/*              TYPOGRAPHY                  */
+/*++++++++++++++++++++++++++++++++++++++++++*/
+html,
+body {
+  color: var(--color-white);
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 1px;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++*/
+/*               BUTTONS                    */
+/*++++++++++++++++++++++++++++++++++++++++++*/
+/* Basic button styles, https://css-tricks.com/overriding-default-button-styles/ */
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background: var(--color-dark);
+}
+
+button:focus {
+  outline: 1px solid var(--color-white);
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++*/
+/*               STYLES                     */
+/*++++++++++++++++++++++++++++++++++++++++++*/
+.container {
+  background-color: var(--color-background);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.drop-zone-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.drop-zone-target {
+  position: relative;
+  width: 60vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-weight: 500;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 50px 5px var(--color-primary-light);
+  /* margin: 3rem; */
+  margin-bottom: 6rem;
+}
+
+.drop-zone-target::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-image: url("../assets/images/angular-brands.png"),
+    url("../assets/images/css3-alt-brands.png"),
+    url("../assets/images/git-alt-brands.png"),
+    url("../assets/images/js-square-brands.png"),
+    url("../assets/images/node-js-brands.png"),
+    url("../assets/images/npm-brands.png"),
+    url("../assets/images/php-brands.png"),
+    url("../assets/images/python-brands.png"),
+    url("../assets/images/react-brands.png"),
+    url("../assets/images/sass-brands.png");
+
+  background-position: left 5% top 5%, left 50% top 30%, left 80% top 10%,
+    left 10% top 90%, left 90% top 23%, left 40% top 64%, left 95% top 90%,
+    left 10% top 90%, left 30% top 80%, left 70% top 30%;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  background-blend-mode: screen;
+  opacity: 0.2;
+}
+
+.drop-zone-login {
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 27vw;
+}
+
+.drop-zone-login > h1 {
+  font-size: 2.125rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.drop-zone-login .subheading {
+  font-size: 0.875rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-dark);
+}
+
+.upload-btn {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.login-btn {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--color-white);
+  border-radius: 5px;
+  margin-top: 3rem;
+  background-color: var(--color-background);
+  background-image: url(../assets/images/google-svgrepo-com.png);
+  background-size: 30px 30px;
+  background-position: top 5px left 15px;
+  background-repeat: no-repeat;
+
+  color: var(--color-white);
+  padding: 0.6rem 6rem;
+  width: 100%;
+}
+
+/* REACT APP */
+
+/*  Wellcome page */
+
+.wellcome {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}

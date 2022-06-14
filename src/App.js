@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import { Router, Route, Switch } from "react-router-dom";
+
+import { useAuth0 } from "@auth0/auth0-react";
+
+import LoginLogout from "./components/LoginLogout";
+
+// styles
+import "./App.css";
 
 function App() {
+  const { isAuthenticated, isLoading, error } = useAuth0();
+
+  const dropZone = (
+    <div class="drop-zone-area">
+      <div
+        class="drop-zone-target"
+        ondrop="dropHandler(event)"
+        ondragover="dragOverHandler(event);"
+      >
+        <p>arrastra tus archivos aquí</p>
+      </div>
+      <button class="upload-btn" onclick="upload()">
+        Subir archivos
+      </button>
+    </div>
+  );
+
+  if (error) {
+    return <div>Oops... {error.message}</div>;
+  }
+
+  if (isLoading) {
+    return <h1>LOading...</h1>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {isAuthenticated ? dropZone : null}
+      <LoginLogout />
     </div>
   );
 }
