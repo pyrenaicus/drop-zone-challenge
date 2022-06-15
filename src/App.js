@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import LoginLogout from "./components/LoginLogout";
 import DragAndDrop from "./components/DragAndDrop";
+import Loading from "./components/Loading";
 
 // styles
 import "./App.css";
@@ -36,7 +37,7 @@ function App() {
   }
 
   if (isLoading) {
-    return <h1>LOading...</h1>;
+    return <Loading />;
   }
 
   const dropZone = (

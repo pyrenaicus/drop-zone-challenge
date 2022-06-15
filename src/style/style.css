@@ -230,22 +230,39 @@ button:active {
   font-size: 1.25rem;
   font-weight: 700;
 }
-
-.login-btn {
+/* ⁄Login button  */
+.btn {
   display: block;
   width: 100%;
   border: 1px solid var(--color-white);
   border-radius: 5px;
   margin-top: 3rem;
   background-color: var(--color-background);
-  background-image: url(../assets/images/google-svgrepo-com.png);
-  background-size: 30px 30px;
-  background-position: top 5px left 15px;
-  background-repeat: no-repeat;
 
   color: var(--color-white);
   padding: 0.6rem 6rem;
   width: 100%;
+}
+
+.login {
+  background-image: url(../assets/images/google-svgrepo-com.png);
+  background-size: 30px 30px;
+  background-position: top 5px left 15px;
+  background-repeat: no-repeat;
+}
+
+.login:hover,
+.login:focus {
+  background: var(--color-primary-dark);
+  background-image: url(../assets/images/google-svgrepo-com.png);
+  background-size: 30px 30px;
+  background-position: top 5px left 15px;
+  background-repeat: no-repeat;
+}
+
+.logout:hover,
+.logout:focus {
+  background: var(--color-primary-dark);
 }
 
 /* REACT APP */
@@ -259,4 +276,7 @@ button:active {
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+
+.spinner {
 }
