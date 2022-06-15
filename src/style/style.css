@@ -93,6 +93,7 @@ select {
 /*++++++++++++++++++++++++++++++++++++++++++*/
 html,
 body {
+  background-color: var(--color-background);
   color: var(--color-white);
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
