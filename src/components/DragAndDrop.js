@@ -1,3 +1,5 @@
+import UploadButton from "./UploadButton";
+
 const DragAndDrop = (props) => {
   const { data, dispatch } = props;
 
@@ -50,9 +52,7 @@ const DragAndDrop = (props) => {
       >
         <p>arrastra tus archivos aquí</p>
       </div>
-      <button class="upload-btn" onclick="upload()">
-        Subir archivos
-      </button>
+	  <UploadButton />
     </div>
   );
 };

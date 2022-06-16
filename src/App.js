@@ -7,13 +7,14 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoginLogout from "./components/LoginLogout";
 import DragAndDrop from "./components/DragAndDrop";
 import Loading from "./components/Loading";
+import UploadButton from './components/UploadButton';
 
 // styles
 import "./App.css";
 
 function App() {
-  const { isAuthenticated, isLoading, error } = useAuth0();
-
+    const { isAuthenticated, isLoading, error, getAccessTokenSilently } = useAuth0();
+    console.log(getAccessTokenSilently);
   const reducer = (state, action) => {
     switch (action.type) {
       case "SET_DROP_DEPTH":
@@ -40,24 +41,10 @@ function App() {
     return <Loading />;
   }
 
-  const dropZone = (
-    <div class="drop-zone-area">
-      <div
-        class="drop-zone-target"
-        ondrop="dropHandler(event)"
-        ondragover="dragOverHandler(event);"
-      >
-        <p>arrastra tus archivos aquí</p>
-      </div>
-      <button class="upload-btn" onclick="upload()">
-        Subir archivos
-      </button>
-    </div>
-  );
+
 
   return (
     <div className="container">
-      {/* {isAuthenticated ? dropZone : null} */}
       {isAuthenticated ? <DragAndDrop data={data} dispatch={dispatch} /> : null}
 
       <LoginLogout />
