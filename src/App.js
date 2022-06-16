@@ -14,7 +14,7 @@ import "./App.css";
 
 function App() {
     const { isAuthenticated, isLoading, error, getAccessTokenSilently } = useAuth0();
-    console.log(getAccessTokenSilently);
+
   const reducer = (state, action) => {
     switch (action.type) {
       case "SET_DROP_DEPTH":
@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="container">
-      {isAuthenticated ? <DragAndDrop data={data} dispatch={dispatch} /> : null}
+	  {isAuthenticated ? <DragAndDrop data={data} dispatch={dispatch} getAccessTokenSilently={getAccessTokenSilently} /> : null}
 
       <LoginLogout />
     </div>
