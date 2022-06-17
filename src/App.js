@@ -7,7 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoginLogout from "./components/LoginLogout";
 import DragAndDrop from "./components/DragAndDrop";
 import Loading from "./components/Loading";
-// import UploadButton from './components/UploadButton';
+
 
 // styles
 import "./App.css";

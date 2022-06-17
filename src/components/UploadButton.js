@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 // import useDrivePicker from 'react-google-drive-picker'
-import AuthProvideWithHistory from "../auth0-provider-with-history"
+
 
 const UploadButton = (props) => {
     // const [openPicker, data, authResponse] = useDrivePicker();
@@ -60,11 +60,11 @@ const UploadButton = (props) => {
 
     
     return       (
-	<AuthProvideWithHistory>
+
 	    <button className="upload-btn" onClick={() => {}}>
              Subir archivos
 	    </button>
-	 </ AuthProvideWithHistory>
+
     )
 }
 
