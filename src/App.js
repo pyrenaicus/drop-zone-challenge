@@ -1,13 +1,13 @@
 import { useReducer } from "react";
-import logo from "./logo.svg";
-import { Router, Route, Switch } from "react-router-dom";
+// import logo from "./logo.svg";
+// import { Router, Route, Switch } from "react-router-dom";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
 import LoginLogout from "./components/LoginLogout";
 import DragAndDrop from "./components/DragAndDrop";
 import Loading from "./components/Loading";
-import UploadButton from './components/UploadButton';
+// import UploadButton from './components/UploadButton';
 
 // styles
 import "./App.css";
