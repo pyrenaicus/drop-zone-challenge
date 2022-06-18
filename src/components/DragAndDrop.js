@@ -36,7 +36,6 @@ const DragAndDrop = (props) => {
       dispatch({ type: "SET_IN_DROP_ZONE", inDropZone: false });
     }
     console.log(files);
-    console.log(data);
   };
 
   return (
@@ -49,7 +48,6 @@ const DragAndDrop = (props) => {
         onDragLeave={(e) => handleDragLeave(e)}
       >
         <p>Drop your files here</p>
-        {data.fileList.length > 0 ?? <p>Tadaaaa</p>}
       </div>
       <UploadButton />
     </div>
