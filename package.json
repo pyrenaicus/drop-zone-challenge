@@ -4,19 +4,13 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.10.1",
-    "@rpldy/upload-button": "^1.0.0",
-    "@rpldy/uploady": "^1.0.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "drive-uploady": "^0.2.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-gapi": "^1.0.2",
-    "react-google-drive-picker": "^1.2.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

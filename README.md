@@ -69,17 +69,10 @@ npm start
 ## Stack
 
 - React
+- JavaScript
+- HTML
+- CSS
 - Auth0
-
-## Roadmap and visuals
-
-BLA BLA
-
-## Contribution
-
-## Contact Info
-
-## Aknowledgements
 
 ## License
 
