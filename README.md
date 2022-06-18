@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+![banner](https://res.cloudinary.com/do6vrwdse/image/upload/v1655549092/drop-box/screenshot-1.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 💫 Hackathon BCN Inclusive Coding
 
-## Available Scripts
+Frontend project created as a solution to the challenge given in [Hackathon BCN Inclusive Coding](https://nuwe.io/challenge/hackathon-bcn-inclusive-coding-frontend) organized by [Nuwe](https://nuwe.io/), [Creu Roja Barcelona](https://www.cruzroja.es/principal/web/barcelona) and [Mobile World Capital, Barcelona](https://mobileworldcapital.com/).
 
-In the project directory, you can run:
+## 🌟 The Challenge
 
-### `npm start`
+Given this [Figma design](https://www.figma.com/file/0SZrgYVwjp2mz1ohVi8WSw?node-id=51:4), we have to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Build a drop box app with three different views
+2. Add a **Login** and **Register** view
+3. Deploy the project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+As extra improvements to implement:
 
-### `npm test`
+4. Allow the user to upload files to her Google Drive, using Google API or any library implementing it
+5. Responsive design
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 👀 Usage
 
-### `npm run build`
+See and experiment with a live example here: [drop-box.surge.sh/](https://drop-box.surge.sh/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+First thing we see is a login view, when clicking the button, an [Auth0](https://auth0.com) **Login Box** opens, where we can login with our Google account. As the main objective is to upload files to [Google Drive](https://drive.google.com) there is no **register** option, you just are given the option to login with a Google account.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+After clicking **Continue with Google buttom** we are taken to a view with a **Drop Zone**, an **Upload** button, and a **Logout** button.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Pressing **Logout** redirects us to the previous **Login** view.
 
-### `npm run eject`
+We are using [Auth0](https://auth0.com) as it allows us to implement authentication with Google (and multiple identity providers as Facebook, GitHub, etc...) as well as to call protected APIs with an Access Token.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Components
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### AuthorizationProvider
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+For login purposes we use **Auth Authentication API** and it's React Auth0 SDK library `auth0-react`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Previously we had to create a new application in [Auth0 Dashboard](https://manage.auth0.com/dashboard/) and configure it accordingly, setting it's Callback and Logout URLs and allowed web origins. I did follow Auth0's [quickstart guide](https://auth0.com/docs/quickstart/spa/react/interactive) and also this short course on Egghead: [Adding Login to React with Auth0](https://egghead.io/lessons/react-adding-login-to-react-with-auth0) and [The Complete Guide to React User Authentication with AUTH0](https://auth0.com/blog/complete-guide-to-react-user-authentication/).
 
-## Learn More
+Please, see [Auth0ProviderOptions | @auth0/auth0-react](https://auth0.github.io/auth0-react/interfaces/Auth0ProviderOptions.html) for a full list of the provider options.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`AuthorizationProvider` is just a **wrapper** component.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### DragAndDrop
 
-### Code Splitting
+To build the **Drop Zone** we used the [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API), following along [Simple drag and drop file upload in React
+](https://medium.com/@650egor/simple-drag-and-drop-file-upload-in-react-2cb409d88929) and [How To Use The HTML Drag-And-Drop API In React](https://www.smashingmagazine.com/2020/02/html-drag-drop-api-react/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+When we drop one or more files in the drop zone, they will be added to the `FileList` array in local state. Try to drop some files and check the console. Those files would be later on uploaded to Google Drive.
 
-### Analyzing the Bundle Size
+### UploadButton
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This component would call Auth0, get an Acces Token throuhgh `getAccessTokenSilently` and the call Google API with it. I tried with two different React libraries, [React Google Picker](https://github.com/sdoomz/react-google-picker) and [React Drive Uploady](https://github.com/rpldy/drive-uploady) with no success 😢. I think I quite don't get how to pass the Access Token to Google, and haven't found no significative information about it while searching.
 
-### Making a Progressive Web App
+## 🛠 Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Clone this repo and install it's dependencies:
 
-### Advanced Configuration
+```bash
+# Clone and install commands
+git clone
+cd repo
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Run commands
+npm start
+```
 
-### Deployment
+## Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- React
+- Auth0
 
-### `npm run build` fails to minify
+## Roadmap and visuals
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+BLA BLA
+
+## Contribution
+
+## Contact Info
+
+## Aknowledgements
+
+## License
+
+MIT License

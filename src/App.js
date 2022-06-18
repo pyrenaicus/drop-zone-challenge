@@ -12,8 +12,7 @@ import Loading from "./components/Loading";
 import "./App.css";
 
 function App() {
-  const { isAuthenticated, isLoading, error, getAccessTokenSilently } =
-    useAuth0();
+  const { isAuthenticated, isLoading, error } = useAuth0();
 
   const reducer = (state, action) => {
     switch (action.type) {
@@ -34,7 +33,11 @@ function App() {
   });
 
   if (error) {
-    return <div>Oops... {error.message}</div>;
+    return (
+      <div className="container">
+        <div>Oops... {error.message}</div>
+      </div>
+    );
   }
 
   if (isLoading) {
@@ -43,13 +46,7 @@ function App() {
 
   return (
     <div className="container">
-      {isAuthenticated ? (
-        <DragAndDrop
-          data={data}
-          dispatch={dispatch}
-          getAccessTokenSilently={getAccessTokenSilently}
-        />
-      ) : null}
+      {isAuthenticated ? <DragAndDrop data={data} dispatch={dispatch} /> : null}
 
       <LoginLogout />
     </div>

@@ -7,10 +7,10 @@ const LoginLogout = () => {
 
   return (
     <div className="drop-zone-login">
-      <h1 className="heading">Bienvenido a DDrop</h1>
+      <h1 className="heading">Welcome to DDrop</h1>
       <div className="subheading">
-        Para subir tus archivos de forma simple a drive, puedes hacer Login a
-        través de Google.
+        To easily upload your files to Google Drive, please Login with your
+        Google account.
       </div>
 
       {isAuthenticated ? <LogoutButton /> : <LoginButton />}

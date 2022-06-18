@@ -2,15 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-import Auth0ProviderWithHistory from "./components/AuthProviderWithHistory";
+import AuthorizationProvider from "./components/AuthorizationProvider";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 import "./style/style.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
-    <Auth0ProviderWithHistory>
+    <AuthorizationProvider>
       <App />
-    </Auth0ProviderWithHistory>
+    </AuthorizationProvider>
   </Router>
 );

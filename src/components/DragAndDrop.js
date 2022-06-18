@@ -1,7 +1,7 @@
-import MyUploadButton from "./UploadButton";
+import UploadButton from "./UploadButton";
 
 const DragAndDrop = (props) => {
-  const { data, dispatch, getAccessTokenSilently } = props;
+  const { data, dispatch } = props;
 
   const handleDragEnter = (e) => {
     e.preventDefault();
@@ -35,24 +35,23 @@ const DragAndDrop = (props) => {
       dispatch({ type: "SET_DROP_DEPTH", dropDepth: 0 });
       dispatch({ type: "SET_IN_DROP_ZONE", inDropZone: false });
     }
+    console.log(files);
+    console.log(data);
   };
 
   return (
     <div className="drop-zone-area">
       <div
-        className={
-          data.inDropZone
-            ? "drop-zone-target inside-drag-area"
-            : "drop-zone-target"
-        }
+        className="drop-zone-target"
         onDrop={(e) => handleDrop(e)}
         onDragOver={(e) => handleDragOver(e)}
         onDragEnter={(e) => handleDragEnter(e)}
         onDragLeave={(e) => handleDragLeave(e)}
       >
-        <p>arrastra tus archivos aquí</p>
+        <p>Drop your files here</p>
+        {data.fileList.length > 0 ?? <p>Tadaaaa</p>}
       </div>
-      <MyUploadButton getAccessTokenSilently={getAccessTokenSilently} />
+      <UploadButton />
     </div>
   );
 };
