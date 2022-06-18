@@ -6,9 +6,9 @@ const LoginLogout = () => {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <div class="drop-zone-login">
-      <h1 class="heading">Bienvenido a DDrop</h1>
-      <div class="subheading">
+    <div className="drop-zone-login">
+      <h1 className="heading">Bienvenido a DDrop</h1>
+      <div className="subheading">
         Para subir tus archivos de forma simple a drive, puedes hacer Login a
         través de Google.
       </div>

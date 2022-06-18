@@ -1,7 +1,7 @@
-import UploadButton from "./UploadButton";
+import MyUploadButton from "./UploadButton";
 
 const DragAndDrop = (props) => {
-    const { data, dispatch, getAccessTokenSilently } = props;
+  const { data, dispatch, getAccessTokenSilently } = props;
 
   const handleDragEnter = (e) => {
     e.preventDefault();
@@ -52,7 +52,7 @@ const DragAndDrop = (props) => {
       >
         <p>arrastra tus archivos aquí</p>
       </div>
-	  <UploadButton getAccessTokenSilently={getAccessTokenSilently} />
+      <MyUploadButton getAccessTokenSilently={getAccessTokenSilently} />
     </div>
   );
 };
